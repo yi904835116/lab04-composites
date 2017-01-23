@@ -1,61 +1,47 @@
 interface DomElement {
-  elements: DomElement[];
   add(elem: DomElement);
   print();
 };
 
 
 class Html implements DomElement {
-  elementName: string;
-  elements: DomElement[];
-
-  constructor(elementName: string) {
-    this.elementName = elementName;
-    this.elements = [];
-  }
+  elements: DomElement[] = [];
 
   add(elem: DomElement) {
     this.elements.push(elem);
   }
 
   print() {
-    console.log(`<${this.elementName}>`);
+    console.log('<html>');
     for (let element of this.elements) {
       element.print();
     }
-    console.log(`</${this.elementName}>`);
+    console.log('</html>');
   }
 }
 
 class Div implements DomElement {
-  elementName: string;
-  elements: DomElement[];
-
-  constructor(elementName: string) {
-    this.elementName = elementName;
-    this.elements = [];
-  }
+  elements: DomElement[] = [];
 
   add(elem: DomElement) {
     this.elements.push(elem);
   }
 
   print() {
-    console.log(`<${this.elementName}>`);
+    console.log('<div>');
     for (let element of this.elements) {
       element.print();
     }
-    console.log(`</${this.elementName}>`);
+    console.log('</div>');
   }
 }
 
 class P implements DomElement {
-  elementName: string;
+  textContext : string;
   elements: DomElement[];
 
-  constructor(elementName: string) {
-    this.elementName = elementName;
-    this.elements = [];
+  constructor(textContent: string) {
+    this.textContext = textContent;
   }
 
   add(elem: DomElement) {
@@ -63,21 +49,20 @@ class P implements DomElement {
   }
 
   print() {
-    console.log(`<${this.elementName}>`);
-    for (let element of this.elements) {
-      element.print();
-    }
-    console.log(`</${this.elementName}>`);
+    console.log(`<p>${this.textContext}</p>`);
+    // should we keep this or remove it for the leaf node?
+    // for (let element of this.elements) {
+    //   element.print();
+    // }
   }
 }
 
-let html = new Html("html");
-let div = new Div("div");
-let p1 = new P("p");
-let p2 = new P("p");
+let html = new Html();
+let div = new Div();
+let p1 = new P("Hello");
+let p2 = new P("world");
 
 div.add(p1);
 div.add(p2);
 html.add(div);
-
 html.print();
