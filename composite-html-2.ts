@@ -1,10 +1,12 @@
 class DomElement {
   elementName : string;
+  textContent: string;
   elements: DomElement[];
 
-  constructor(elementName : string) {
+  constructor(elementName : string, textContent?: string) {
     this.elementName = elementName;
     this.elements = [];
+    this.textContent = textContent;
   }
 
   add(element: DomElement) {
@@ -13,6 +15,9 @@ class DomElement {
 
   print() {
     console.log(`<${this.elementName}>`);
+    if (this.textContent) {
+      console.log(this.textContent);
+    }
     for (let element of this.elements) {
       element.print();
     }
@@ -20,8 +25,8 @@ class DomElement {
   }
 }
 
-let p1 = new DomElement("p");
-let p2 = new DomElement("p");
+let p1 = new DomElement("p", "Hello world!");
+let p2 = new DomElement("p", "How is it going?");
 let div = new DomElement("div");
 let html = new DomElement("html");
 
