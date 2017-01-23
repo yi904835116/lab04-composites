@@ -1,4 +1,9 @@
-class DomElement {
+interface IDomElement {
+  add(element: DomElement);
+  print();
+}
+
+class DomElement implements IDomElement {
   elementName : string;
   textContent: string;
   elements: DomElement[];
