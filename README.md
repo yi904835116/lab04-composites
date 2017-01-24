@@ -36,8 +36,8 @@ From that example we can identify the following components:
 
 This is much like [tangrams](https://en.wikipedia.org/wiki/Tangram)!
 
-<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/377018/images/2152390/dc7rMnpc9.jpeg" width="500">
-<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/377018/images/2152408/Screen_Shot_2016-01-20_at_11.10.19_AM.png" width="500">
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/377018/images/2152390/dc7rMnpc9.jpeg" width="300">
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/377018/images/2152408/Screen_Shot_2016-01-20_at_11.10.19_AM.png" width="300">
 
 This turns groups of shapes into a tree, which can be recursively treated the same way.
 
