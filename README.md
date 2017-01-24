@@ -12,5 +12,66 @@ Often an application will need to manipulate a collection of objects in the same
 You will need to **fork** and **clone** this repository and open in VSCode or your favorite editor.
 
 
+## Structure
+Composites contain lists of components, each of which could be a leaf or a composite itself.
+
+In this case doThis() is the functionality that is shared between the leaf and composite elements.
+
+![alt text](https://sourcemaking.com/files/v2/content/patterns/Composite.svg "Composite Pattern")
+
+## Recursive Composition
+
+When doThis() is called on any composite, it iterates through it's list of components, and calls doThis() on each of them. Remember that 
+
+## Example - Graphics Drawing Editor
+
+In graphics editors, shapes can be simple or complex. An example of a simple shape is a line, while a triangle is complex because it is composed of three lines. You may want to even create even more complex shapes out of other complex shapes, for instance you could create a duck shape out of a collection of traingle shapes.
+
+From that example we can identify the following components:
++ Shape (Component)
++ Line (Leaf)
++ Rectangle, Triangle, Duck (Composite)
+
+
+## Your task
+
+Recall the DOM (Document Object Model) from 343. It defines a structured representation of a web page document as a tree. Each node in the tree is an object which represents some part of the document. Most nodes can be composed of other nodes, and 
+
+Your task for this lab is to write TypeScript that constructs and prints out an HTML DOM using the composites pattern.
+
+Your output will look something like this:
+
+```
+C:\code\info498e\lab04-composites>node composite-html-2.js
+<html>
+<div>
+<p>
+Hello world!
+</p>
+<p>
+How is it going?
+</p>
+</div>
+</html>
+
+```
+
+We have given you some starter code that includes an interface (IDomElement). You need to create a class (DomElement) that implements this interface.
+
+```javascript
+interface IDomElement {
+  add(element: DomElement);
+  print();
+}
+```
+
+Each instance of this DomElement class will represent a element (you can also call them nodes) in your DOM tree.
+
+Use this composite structure to create a DOM tree that looks like the sample output we've provided you above.
+
+
+## Submission
+To recieve credit for this lab, turn in a link to your repository in the Lab4 assignment on Canvas here.
+
 
 
