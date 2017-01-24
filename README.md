@@ -70,7 +70,7 @@ TextNode == leaf // TextNode
 
 ```
 
-Note that the // comments should not be a part of your output. They are their to give you a better understanding of how your DOM tree should be structured.
+Note that the // comments should not be a part of your output. They are there to give you a better understanding of how your DOM tree should be structured.
 
 We have given you some starter code that includes an interface (**IDomElement**). You need to create two classes that implement this interface: **DomElement**, and **TextNode**.
 
