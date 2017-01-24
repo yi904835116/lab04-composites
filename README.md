@@ -46,43 +46,90 @@ This turns groups of shapes into a tree, which can be recursively treated the sa
 
 ## Your task
 
-Recall the DOM (Document Object Model) from 343. It defines a structured representation of a web page document as a tree. Each node in the tree is an object which represents some part of the document. Most nodes can be composed of other nodes, and 
+<img src="http://courses.cs.washington.edu/courses/cse190m/12su/lectures/slides/images/jquery-find-dom.png">
 
-Your task for this lab is to write TypeScript that constructs and prints out an HTML DOM using the composites pattern.
+Review: Recall the DOM (Document Object Model) from 343. It defines a structured representation of a web page document as a tree. Each node in the tree is an object which represents some part of the document. The DOM is itself an instance of the composite pattern that you are learning in lab today, so we will have you build a primitive DOM to get some hands on practice with composites.
+
+Write TypeScript that constructs and prints out an HTML DOM using the composites pattern.
 
 Your output will look something like this:
 
 ```
-C:\code\info498e\lab04-composites>node composite-html-2.js
-<html>
-<div>
-<p>
-Hello world!
-</p>
-<p>
-How is it going?
-</p>
-</div>
-</html>
+C:\code\info498e\lab04-composites>tsc composite-dom.ts
+C:\code\info498e\lab04-composites>node composite-dom.js
+<html> // DomElement
+<div> // DomElement
+<p> // DomElement
+Hi, I am a TextNode being printed! // TextNode
+</p> // DomElement
+<p> //DomElement
+TextNode == leaf // TextNode
+</p> // DomElement
+</div> // DomElement
+</html> // DomElement
 
 ```
 
-We have given you some starter code that includes an interface (IDomElement). You need to create a class (DomElement) that implements this interface.
+Note that the // comments should not be a part of your output. They are their to give you a better understanding of how your DOM tree should be structured.
+
+We have given you some starter code that includes an interface (**IDomElement**). You need to create two classes that implement this interface: **DomElement**, and **TextNode**.
 
 ```javascript
 interface IDomElement {
-  add(element: DomElement);
   print();
 }
 ```
 
-Each instance of this DomElement class will represent a element (you can also call them nodes) in your DOM tree.
+Most of the elements in your DOM will be DomElements because they will have child DomElements of their own. The difference between a DomElement and a TextNode is that a TextNode has no child DomElements (it is a leaf in the DOM tree).
+
+
+
+
+Each instance of this DomElement class will represent a element (you can also call them nodes) in your DOM tree (e.g. an html tag, or div tag, or p tag, etc...)
 
 Use this composite structure to create a DOM tree that looks like the sample output we've provided you above.
 
 
 ## Submission
 To recieve credit for this lab, turn in a link to your repository in the Lab4 assignment on Canvas here.
+
+## Bonus challenge
+
+If you finish the lab early and want an extra challenge, try tackling indentation.
+
+So instead of:
+
+
+```
+<html>
+<div>
+<p>
+Hi, I am a TextNode being printed!
+</p>
+<p>
+TextNode == leaf
+</p>
+</div>
+</html>
+
+```
+
+your code should instead output:
+
+
+```
+<html>
+  <div>
+    <p>
+      Hi, I am a TextNode being printed!
+    </p>
+    <p>
+      TextNode == leaf
+    </p>
+  </div>
+</html>
+
+```
 
 
 
