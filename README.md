@@ -13,15 +13,27 @@ You will need to **fork** and **clone** this repository and open in VSCode or yo
 
 
 ## Structure
+<<<<<<< HEAD
 Composites contain lists of components, each of which could be a leaf or a composite itself.
 
 In this case doThis() is the functionality that is shared between the leaf and composite elements.
+=======
+Define an interface Component, which defines the shared functionality across leaves and composites in the tree. In this case doThis() is shared between the leaf and composite elements, and allows you to treat Leaf and Composite uniformly.
+
+Implement Component with Leaf and Composite; Composites contain lists of components, each of which could be a leaf or a composite itself.
+
+Implement doThis() in both Leaf and Composite, but the functionality differes in that Composite iterates through it's list of elements and calls doThis() on each.
+>>>>>>> master
 
 ![alt text](https://sourcemaking.com/files/v2/content/patterns/Composite.svg "Composite Pattern")
 
 ## Recursive Composition
 
+<<<<<<< HEAD
 When doThis() is called on any composite, it iterates through it's list of components, and calls doThis() on each of them. Remember that 
+=======
+When doThis() is called on any composite, it iterates through it's list of components, and calls doThis() on each of them. Each of these doThis() may call a doThis() of a list of components, thus recursively calling until a Leaf.
+>>>>>>> master
 
 ## Example - Graphics Drawing Editor
 
@@ -32,6 +44,16 @@ From that example we can identify the following components:
 + Line (Leaf)
 + Rectangle, Triangle, Duck (Composite)
 
+<<<<<<< HEAD
+=======
+This is much like [tangrams](https://en.wikipedia.org/wiki/Tangram)!
+
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/377018/images/2152390/dc7rMnpc9.jpeg" width="300">
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/377018/images/2152408/Screen_Shot_2016-01-20_at_11.10.19_AM.png" width="300">
+
+This turns groups of shapes into a tree, which can be recursively treated the same way.
+
+>>>>>>> master
 
 ## Your task
 
